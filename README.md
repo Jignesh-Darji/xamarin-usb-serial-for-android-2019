@@ -25,7 +25,7 @@ This solution contains two projects.
 ## Getting Started
 **1.** Reference the library to your project
 
-**2.** Copy the [device_filter.axml](https://github.com/anotherlab/UsbSerialForAndroid/blob/master/UsbSerialExampleApp/Resources/xml/device_filter.xml) from the example app to your Resources/xml folder.  Make sure that the Build Action is set to AndroidResource
+**2.** Copy the [device_filter.axml](https://github.com/Jignesh-Darji/xamarin-usb-serial-for-android-2019/blob/master/UsbSerialExampleApp/Resources/xml/device_filter.xml) from the example app to your Resources/xml folder.  Make sure that the Build Action is set to AndroidResource
 
 **3.** Add the following attribute to the main activity to enable the USB Host
 ```C#
@@ -42,7 +42,7 @@ This solution contains two projects.
 [MetaData(UsbManager.ActionUsbDeviceAttached, Resource = "@xml/device_filter")]
 ```
 
-**6.** Refer to [MainActivity.cs](https://github.com/anotherlab/UsbSerialForAndroid/blob/master/UsbSerialExampleApp/MainActivity.cs) in the example app to see how connect to a serial device and read data from it.
+**6.** Refer to [MainActivity.cs](https://github.com/Jignesh-Darji/xamarin-usb-serial-for-android-2019/blob/master/UsbSerialExampleApp/MainActivity.cs) in the example app to see how connect to a serial device and read data from it.
 
 ## Working with unrecognized devices
 The UsbSerialForAndroid has been compiled with the Vendor ID/Product ID pairs for many common serial devices.  If you have a device that is not defined by the library, but will work with one of the drivers, you can manually add the VID/PID pair.
@@ -95,5 +95,5 @@ For other help and discussion, please join the usb-serial-for-android Google Gro
 
 This library is licensed under LGPL Version 2.1. Please see LICENSE.txt for the complete license.
 
-Copyright 2019, Jigneshdarji.com & Tyler Technologies Inc.  All Rights Reserved.  Portions of this library are based on the [xamarin-usb-serial-for-android](https://github.com/anotherlab/xamarin-usb-serial-for-android),[usb-serial-for-android](https://github.com/mik3y/usb-serial-for-android) and [XamarinUsbSerial](https://bitbucket.org/lusovu/xamarinusbserial) libraries.  Their rights remain intact.
+Copyright 2019, Jigneshdarji.com & Tyler Technologies Inc.  All Rights Reserved.  Portions of this library are based on the [xamarin-usb-serial-for-android](https://github.com/anotherlab/xamarin-usb-serial-for-android), [usb-serial-for-android](https://github.com/mik3y/usb-serial-for-android) and [XamarinUsbSerial](https://bitbucket.org/lusovu/xamarinusbserial) libraries.  Their rights remain intact.
 
