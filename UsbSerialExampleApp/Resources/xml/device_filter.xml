@@ -23,6 +23,5 @@
 
   <!-- 0x09D8 / 0x0420: Elatec TWN4 OTG -->
   <usb-device vendor-id="2520" product-id="1056" />
-  <!-- 0x15a2 / 0x0500: CDC SEDEMAC OTG -->
-  <usb-device vendor-id="5538" product-id="1280" />
+ 
 </resources>
