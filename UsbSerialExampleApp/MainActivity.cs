@@ -57,6 +57,7 @@ namespace UsbSerialExampleApp
 
         UsbSerialPortAdapter adapter;
         BroadcastReceiver detachedReceiver;
+        BroadcastReceiver attachedReceiver;
         UsbSerialPort selectedPort;
 
 
@@ -89,6 +90,8 @@ namespace UsbSerialExampleApp
             //register the broadcast receivers
             detachedReceiver = new UsbDeviceDetachedReceiver(this);
             RegisterReceiver(detachedReceiver, new IntentFilter(UsbManager.ActionUsbDeviceDetached));
+            attachedReceiver = new UsbDeviceAttachedReceiver(this);
+            RegisterReceiver(detachedReceiver, new IntentFilter(UsbManager.ActionUsbDeviceAttached));
         }
         protected override void OnPause()
         {
@@ -110,7 +113,7 @@ namespace UsbSerialExampleApp
 
             table.AddProduct(0x09D8, 0x0420, typeof(CdcAcmSerialDriver)); // Elatec TWN4
 
-
+           
             var prober = new UsbSerialProber(table);
             return prober.FindAllDriversAsync(usbManager);
         }
@@ -233,7 +236,30 @@ namespace UsbSerialExampleApp
 
         #endregion
 
+        #region UsbDeviceAttachedReceiver implementation
 
+        class UsbDeviceAttachedReceiver
+            : BroadcastReceiver
+        {
+            readonly string TAG = typeof(UsbDeviceAttachedReceiver).Name;
+            readonly MainActivity activity;
+
+            public UsbDeviceAttachedReceiver(MainActivity activity)
+            {
+                this.activity = activity;
+            }
+
+            public override async void OnReceive(Context context, Intent intent)
+            {
+                var device = intent.GetParcelableExtra(UsbManager.ExtraDevice) as UsbDevice;
+
+                Log.Info(TAG, "USB device attached: " + device.DeviceName);
+
+                await activity.PopulateListAsync();
+            }
+        }
+
+        #endregion
     }
 }
 
